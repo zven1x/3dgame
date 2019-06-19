@@ -9,28 +9,30 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 
 {
-
+    //tworzenie zmiennej dla controlera.
     private CharacterController characterController;
-
+    //tworzenie zmiennej dla animacji.
     private Animator animator;
 
 
 
     [SerializeField]
-
+    // tworzenie zmiennej dla szybkosci dla chodzienia naprzod.
     private float forwardMoveSpeed = 100;
     [SerializeField]
-
+    // tworzenie zmiennej dla szybkosci dla chodzienia do tylu.
     private float backMoveSpeed = 100;
 
 
 
     [SerializeField]
-
+    // tworzenie zmiennej dla szybkosci obrotu ciala
     private float turnSpeed = 5f;
 
 
-
+    /// <summary>
+    /// metoda jest stworzona dla pobierania komponentow z metod.
+    /// </summary>
     private void Awake()
 
     {
@@ -42,7 +44,9 @@ public class PlayerMovement : MonoBehaviour
     }
 
 
-
+    /// <summary>
+    /// metoda jest stworzona dla poprawnej pracy ruchy postaci oraz dzielania animacji.
+    /// </summary>
     private void Update()
 
     {
@@ -55,9 +59,6 @@ public class PlayerMovement : MonoBehaviour
 
         var movement = new Vector3(horizontal, 0, vertical);
 
-
-
-        //characterController.SimpleMove(movement * Time.deltaTime * moveSpeed);
         animator.SetFloat("Speed", vertical);
 
         transform.Rotate(Vector3.up, horizontal * turnSpeed * Time.deltaTime);
