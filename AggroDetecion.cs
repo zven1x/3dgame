@@ -7,7 +7,11 @@ using UnityEngine.AI;
 public class AggroDetection : MonoBehaviour
 {
     public event Action<Transform> OnAggro = delegate { };
-
+    /// <summary>
+    /// metoda jest stworzona dla intydefikacji glownej Aktor(player).
+    /// dla tego tworzy kapsule ktora powoduje ("Aggro") jezeli Aktor(player) wchodzi w Sphera collider, co powoduje atake.
+    /// </summary>
+    /// <param name="other"></param>
     private void OnTriggerEnter(Collider other)
     {
         var player = other.GetComponent<PlayerMovements>();
