@@ -9,13 +9,18 @@ public class CameraController : MonoBehaviour
     [SerializeField]
     private float sensitivity = 0.3f;
     private CinemachineComposer composer;
+    /// <summary>
+    /// Do metody Start dodajemy pola ktore wykonuje pobieranie elementow z klasy 
+    /// </summary>
    private void Start()
     {
         composer = GetComponent<CinemachineVirtualCamera>().GetCinemachineComponent<CinemachineComposer>();
 
     }
 
-   
+    /// <summary>
+    /// do metody Update dodajemy pola ktore daje poprawnej pracy ruchu camery za pomoca myszy.
+    /// </summary>
    private void Update()
     {
         float vertical = Input.GetAxis("Mouse Y") * sensitivity;
